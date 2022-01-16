@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KompasGithubApp">
-        <activity android:name="vanrrtech.app.kompasgithubapp.app.SearchFunction.View.MainActivity">
+        <activity android:name=".app.UserDetailFunction.UserDetailActivity"></activity>
+        <activity android:name=".app.SearchFunction.View.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
