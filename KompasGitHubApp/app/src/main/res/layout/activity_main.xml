@@ -8,7 +8,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".app.SearchFunction.View.MainActivity">
+        tools:context=".app.SearchFunction.View.MainActivity"
+        android:focusableInTouchMode="true"
+        android:focusable="true">
 
         <androidx.cardview.widget.CardView
             app:cardElevation="0dp"

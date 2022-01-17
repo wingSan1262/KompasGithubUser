@@ -1,37 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".app.UserDetailFunction.UserDetailActivity">
+<layout>
 
-    <LinearLayout
-        android:layout_margin="20dp"
-        android:gravity="left"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/user_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@color/black"/>
-        <TextView
-            android:id="@+id/user_name"
-            android:layout_marginLeft="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SomeUser"
-            android:textSize="32sp"
-            android:textStyle="bold"/>
-    </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2dp"/>
+        android:orientation="vertical"
+        tools:context=".app.UserDetailFunction.UserDetailActivity">
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:gravity="left"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="35dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp">
+                <ImageView
+                    android:id="@+id/user_image"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@color/black"/>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:paddingBottom="5dp"
+                android:orientation="vertical"
+                android:gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_marginLeft="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SomeUser"
+                    android:textSize="32sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/user_account_id"
+                    android:layout_marginLeft="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SomeUser"
+                    android:textSize="16sp"
+                    android:textColor="@color/black_200"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/repo_null_tv"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text="No repository (You may not have internet access)"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="5dp"
+            android:id="@+id/user_repo_rv"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"/>
 
 
-</LinearLayout>
+    </LinearLayout>
+</layout>
