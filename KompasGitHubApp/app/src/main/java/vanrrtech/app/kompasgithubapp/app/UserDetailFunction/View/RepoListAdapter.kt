@@ -34,7 +34,8 @@ class RepoListAdapter (context: Context) : RecyclerView.Adapter<RepoListAdapter.
             binding?.repoName?.text = item.name
             binding?.repoDesc?.text = item.description
             binding?.repoStar?.text = item.watcher_count.toString()
-            binding?.repoLastUpdate?.text = "last update ${item.update_at}"
+            var updateAt = item.update_at
+            binding?.repoLastUpdate?.text = "last update ${updateAt.substring(0, updateAt.indexOf("T"))}"
          }
     }
 

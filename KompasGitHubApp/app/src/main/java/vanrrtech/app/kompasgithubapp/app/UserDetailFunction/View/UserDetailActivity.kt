@@ -55,7 +55,7 @@ class UserDetailActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        viewModelStore.clear()
+        viewModelStore
     }
 
     private fun observeGitUserRemote(){
