@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import vanrrtech.app.kompasgithubapp.R
 import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.UserItem
+import vanrrtech.app.kompasgithubapp.app.UserDetailFunction.View.UserDetailActivity
 import vanrrtech.app.kompasgithubapp.databinding.RvChildUserItemBinding
 
 class UserListAdapter (context: Context) : RecyclerView.Adapter<UserListAdapter.UserListAdapterHolder>() {
@@ -36,22 +37,33 @@ class UserListAdapter (context: Context) : RecyclerView.Adapter<UserListAdapter.
         }
     }
 
-    fun onAddItem (item : UserItem){
+    fun onAddItem (item : UserItem, isSearch : Boolean){
         defaultList.add(0, item)
-        mList.add(0, item)
-        notifyItemInserted(0)
+        if(isSearch == false){
+            mList.add(0, item)
+            notifyItemInserted(0)
+        }
+
     }
 
     class UserListAdapterHolder (_binding : RvChildUserItemBinding) : RecyclerView.ViewHolder(_binding.root) {
 
         var binding : RvChildUserItemBinding? = null
+        lateinit var item : UserItem
         init {
             binding = _binding
         }
         fun setUI(context: Context, userItem: UserItem){
+            item = userItem
             Glide.with(context).load(userItem.avatarUrl).into(
-                binding!!.profilePict)
-            binding!!.nameTv.text = userItem.login
+                binding?.profilePict!!)
+            binding?.nameTv?.text = userItem.login
+
+            binding?.root?.setOnClickListener {
+                var intent = Intent(context, UserDetailActivity::class.java)
+                intent.putExtra(UserDetailActivity.USER_PARAM_INTENT, item)
+                context.startActivity(intent)
+            }
         }
     }
 

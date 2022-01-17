@@ -1,6 +1,7 @@
 package vanrrtech.app.kompasgithubapp.app.SearchFunction.ViewModel
 
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,9 +18,14 @@ class SearchFunctionViewModel : ViewModel() {
 
     fun searchUser(name : String){
         runBlocking {
-            GitUserRemoteRepository.getUserRemoteRepo().getSearchedUser("user%3A$name").collect {
-                searchItem.postValue(it)
+            try {
+                GitUserRemoteRepository.getUserRemoteRepo().getSearchedUser("user:${name}").collect {
+                    searchItem.postValue(it)
+                }
+            } catch (e : Throwable){
+                Log.i("Log", "${e.cause } the message was  ${e.message}")
             }
+
         }
     }
 }

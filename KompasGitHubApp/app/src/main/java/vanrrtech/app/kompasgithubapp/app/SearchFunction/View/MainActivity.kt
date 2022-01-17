@@ -27,11 +27,12 @@ class MainActivity : AppCompatActivity() {
 
     private var _mBinder : ActivityMainBinding? = null
 
+    private var isSearching = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         _mBinder = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
 
         viewModel = ViewModelProvider(this).get(SearchFunctionViewModel::class.java)
 
@@ -49,15 +50,20 @@ class MainActivity : AppCompatActivity() {
             // UI update
 
             // list update
-            userList.onAddItem(mUserItem!!)
+            userList.onAddItem(mUserItem!!, isSearching)
             _mBinder!!.userRv.smoothScrollToPosition(0)
         })
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        this.viewModelStore.clear()
     }
 
     private fun addSearchListener(){
 
         var mQuery = ""
-        viewModel.searchItem!!.observe(this, Observer {
+        viewModel.searchItem.observe(this, Observer {
             userList.onSearchList(it!!, mQuery)
         })
 
@@ -73,10 +79,13 @@ class MainActivity : AppCompatActivity() {
                 override fun onNext(value: TextViewTextChangeEvent?) {
                     mQuery = value!!.text().toString()
                     if(mQuery.isEmpty()){
-                        userList.mList = userList.defaultList
+                        isSearching = false
+                        userList.mList.clear()
+                        userList.mList.addAll(0, userList.defaultList)
                         userList.notifyDataSetChanged()
                         return
                     }
+                    isSearching = true
                     userList.searchedList.clear()
                     userList.mList.clear()
                     userList.notifyDataSetChanged()
