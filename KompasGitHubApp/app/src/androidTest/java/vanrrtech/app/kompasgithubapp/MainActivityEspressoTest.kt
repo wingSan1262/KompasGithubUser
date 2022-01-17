@@ -10,10 +10,13 @@ import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
+import com.adevinta.android.barista.assertion.BaristaListAssertions.assertListItemCount
+import org.hamcrest.Description
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -77,12 +80,106 @@ class MainActivityEspressoTest {
 
         Thread.sleep(2000)
         // click RV
-        onView(withId(R.id.user_rv)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, clickOnViewChild(R.id.root)))
+        onView(withId(R.id.user_rv)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, clickOnViewChild(R.id.avatar)))
 
         onView(withId(R.id.user_repo_rv)).check(matches(isDisplayed()));
         onView(withId(R.id.user_image)).check(matches(isDisplayed()));
         onView(withId(R.id.user_name)).check(matches(isDisplayed()));
     }
+
+    @Test
+    fun clickThirdItemonRV_MainActivity_checkIfNeededDisplayShownLand() {
+
+        onView(withId(R.id.search_field))
+            .check(matches(isDisplayed()))
+
+        onView(withId(R.id.user_rv))
+            .check(matches(isDisplayed()))
+
+        Thread.sleep(2000)
+        // click RV
+        onView(withId(R.id.user_rv)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(3, clickOnViewChild(R.id.avatar)))
+
+        onView(withId(R.id.search_field)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    fun searchValidNameThenClick3_MainActivity_checkIfNeededDisplayShownLand() {
+
+        onView(withId(R.id.search_field))
+            .check(matches(isDisplayed()))
+
+        onView(withId(R.id.user_rv))
+            .check(matches(isDisplayed()))
+
+        onView(withId(R.id.search_field))
+            .perform(typeText("wing"), closeSoftKeyboard());
+
+        Thread.sleep(2000)
+        // click RV
+        onView(withId(R.id.user_rv)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(3, clickOnViewChild(R.id.avatar)))
+
+        onView(withId(R.id.search_field)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    fun searchValidNameThenClick0_MainActivity_checkIfNeededDisplayShownLand() {
+
+        onView(withId(R.id.search_field))
+            .check(matches(isDisplayed()))
+
+        onView(withId(R.id.user_rv))
+            .check(matches(isDisplayed()))
+
+        onView(withId(R.id.search_field))
+            .perform(typeText("wing"), closeSoftKeyboard());
+
+        Thread.sleep(2000)
+        // click RV
+        onView(withId(R.id.user_rv)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, clickOnViewChild(R.id.avatar)))
+
+        onView(withId(R.id.user_name)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    fun searchInValidNameThenClick0_MainActivity_checkIfNeededDisplayShownLand() {
+
+        onView(withId(R.id.search_field))
+            .check(matches(isDisplayed()))
+
+        onView(withId(R.id.user_rv))
+            .check(matches(isDisplayed()))
+
+        onView(withId(R.id.search_field))
+            .perform(typeText("w334"), closeSoftKeyboard());
+
+        Thread.sleep(2000)
+        // click RV
+        onView(withId(R.id.user_rv)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, clickOnViewChild(R.id.avatar)))
+
+        onView(withId(R.id.search_field)).check(matches(isDisplayed()));
+    }
+
+
+    @Test
+    fun searchInValidNameThenClick3_MainActivity_checkIfNeededDisplayShownLand() {
+
+        onView(withId(R.id.search_field))
+            .check(matches(isDisplayed()))
+
+        onView(withId(R.id.user_rv))
+            .check(matches(isDisplayed()))
+
+        onView(withId(R.id.search_field))
+            .perform(typeText("w334"), closeSoftKeyboard());
+
+        Thread.sleep(2000)
+        // click RV
+        onView(withId(R.id.user_rv)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(3, clickOnViewChild(R.id.avatar)))
+
+        onView(withId(R.id.search_field)).check(matches(isDisplayed()));
+    }
+
 
 //    @Before
 //    fun setUp() {
