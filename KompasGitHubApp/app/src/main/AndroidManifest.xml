@@ -2,14 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="vanrrtech.app.kompasgithubapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".app.Utils.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KompasGithubApp">
-        <activity android:name=".SearchFunction.View.MainActivity">
+        <activity android:name=".app.UserDetailFunction.View.UserDetailActivity"/>
+        <activity android:name=".app.SearchFunction.View.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
