@@ -1,5 +1,6 @@
 package vanrrtech.app.kompasgithubapp.app.SearchFunction.View
 
+import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
@@ -15,9 +16,14 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import vanrrtech.app.kompasgithubapp.R
+import vanrrtech.app.kompasgithubapp.app.AppScope.MyApplication
+import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.GitUserRemoteRepository
 import vanrrtech.app.kompasgithubapp.app.SearchFunction.ViewModel.SearchFunctionViewModel
+import vanrrtech.app.kompasgithubapp.app.UserDetailFunction.ModelView.ViewModelFactory
+import vanrrtech.app.kompasgithubapp.app.UserDetailFunction.ModelView.ViewModelUserDetailsActivity
 import vanrrtech.app.kompasgithubapp.databinding.ActivityMainBinding
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
     lateinit var viewModel : SearchFunctionViewModel
@@ -27,14 +33,17 @@ class MainActivity : AppCompatActivity() {
 
     private var _mBinder : ActivityMainBinding? = null
 
+    @Inject lateinit var mRepo : GitUserRemoteRepository
+
     private var isSearching = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        (MyApplication.appContext as MyApplication).myNetworkingComponnentDagger.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         _mBinder = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        viewModel = ViewModelProvider(this).get(SearchFunctionViewModel::class.java)
+        viewModel = SearchFunctionViewModel(mRepo, MyApplication.appContext as Application)
 
         _mBinder!!.userRv.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)

@@ -9,8 +9,9 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import vanrrtech.app.kompasgithubapp.app.AppScope.MyApplication
+import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.Networking.GitUserService
 import vanrrtech.app.kompasgithubapp.app.UserDetailFunction.Model.UserRepoDetails
-import vanrrtech.app.kompasgithubapp.app.Utils.MyApplication
 
 class GitUserRemoteRepository {
 
