@@ -5,11 +5,9 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.runBlocking
-import vanrrtech.app.kompasgithubapp.app.AppScope.MyApplication
 import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.GitUserRemoteRepository
 import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.UserItem
 
@@ -18,7 +16,7 @@ class SearchFunctionViewModel(private val mRepo : GitUserRemoteRepository, appli
 ) {
 
 
-    val userItem = mRepo.getRecentUsers().asLiveData()
+    val userItem = mRepo.getOfflineRecentUsers().asLiveData()
     var searchItem  = MutableLiveData<UserItem?>()
 
     fun searchUser(name : String){

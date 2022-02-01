@@ -18,11 +18,9 @@ class GitUserRemoteRepository {
     companion object{
         val BASE_URL = "https://api.github.com/"
         val ITEM_DELAY = 300L
-
     }
-    val userDb = UsersItemDb.getInstance(MyApplication.appContext!!)
-    val userDao = userDb?.userItemDao()
 
+    // Online Repo Client
     var logging =  HttpLoggingInterceptor()
         .setLevel(HttpLoggingInterceptor.Level.BODY);
     var mClient = OkHttpClient.Builder().addInterceptor(logging)
@@ -33,7 +31,13 @@ class GitUserRemoteRepository {
         .build()
         .create(GitUserService::class.java)
 
-    fun getRecentUsers() : Flow<UserItem?> {
+    // Room DB
+    val userDb = UsersItemDb.getInstance(MyApplication.appContext!!)
+    val userDao = userDb?.userItemDao()
+
+
+
+    fun getOfflineRecentUsers() : Flow<UserItem?> {
         var offlineRes : List<UserItem?>? = null
         CoroutineScope(Dispatchers.IO).launch {
             offlineRes = userDao?.loadAllUser()
