@@ -19,16 +19,6 @@ class GitUserRemoteRepository {
         val BASE_URL = "https://api.github.com/"
         val ITEM_DELAY = 300L
 
-        var mRemoteRepo : GitUserRemoteRepository? = null
-
-        fun getUserRemoteRepo(): GitUserRemoteRepository {
-            if(mRemoteRepo == null){
-                mRemoteRepo = GitUserRemoteRepository()
-            }
-
-            return mRemoteRepo!!
-
-        }
     }
     val userDb = UsersItemDb.getInstance(MyApplication.appContext!!)
     val userDao = userDb?.userItemDao()

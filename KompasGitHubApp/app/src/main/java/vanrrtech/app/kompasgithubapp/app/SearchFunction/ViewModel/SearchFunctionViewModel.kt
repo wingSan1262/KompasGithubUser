@@ -13,7 +13,7 @@ import vanrrtech.app.kompasgithubapp.app.AppScope.MyApplication
 import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.GitUserRemoteRepository
 import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.UserItem
 
-class SearchFunctionViewModel(mRepo : GitUserRemoteRepository, application: Application) : AndroidViewModel(
+class SearchFunctionViewModel(private val mRepo : GitUserRemoteRepository, application: Application) : AndroidViewModel(
     application
 ) {
 
@@ -24,7 +24,7 @@ class SearchFunctionViewModel(mRepo : GitUserRemoteRepository, application: Appl
     fun searchUser(name : String){
         runBlocking {
             try {
-                GitUserRemoteRepository.getUserRemoteRepo().getSearchedUser("user:${name}").collect {
+                mRepo.getSearchedUser("user:${name}").collect {
                     searchItem.postValue(it)
                 }
             } catch (e : Throwable){

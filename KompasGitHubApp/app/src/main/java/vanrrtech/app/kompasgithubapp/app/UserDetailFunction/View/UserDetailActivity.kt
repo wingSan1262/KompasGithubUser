@@ -9,10 +9,13 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import vanrrtech.app.kompasgithubapp.R
+import vanrrtech.app.kompasgithubapp.app.AppScope.MyApplication
+import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.GitUserRemoteRepository
 import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.UserItem
 import vanrrtech.app.kompasgithubapp.app.UserDetailFunction.ModelView.ViewModelUserDetailsActivity
 import vanrrtech.app.kompasgithubapp.app.UserDetailFunction.ModelView.ViewModelFactory
 import vanrrtech.app.kompasgithubapp.databinding.ActivityUserDetailBinding
+import javax.inject.Inject
 
 class UserDetailActivity : AppCompatActivity() {
 
@@ -24,9 +27,13 @@ class UserDetailActivity : AppCompatActivity() {
     lateinit var viewModel : ViewModelUserDetailsActivity
     var mRepoList = RepoListAdapter(this)
 
+    @Inject lateinit var mRepo : GitUserRemoteRepository
+
     var userInfo : UserItem? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        (MyApplication.appContext as MyApplication).myNetworkingComponnentDagger.inject(this)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_detail)
 
@@ -34,7 +41,7 @@ class UserDetailActivity : AppCompatActivity() {
 
         userInfo = intent.getSerializableExtra(USER_PARAM_INTENT) as UserItem?
 
-        viewModel = ViewModelFactory(this.application, userInfo!!).create(ViewModelUserDetailsActivity::class.java)
+        viewModel = ViewModelFactory(mRepo, this.application, userInfo!!).create(ViewModelUserDetailsActivity::class.java)
 
         _mBinder!!.userRepoRv.apply {
             layoutManager = LinearLayoutManager(this@UserDetailActivity)

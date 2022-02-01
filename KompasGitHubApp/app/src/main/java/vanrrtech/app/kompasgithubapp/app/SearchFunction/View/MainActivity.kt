@@ -19,8 +19,6 @@ import vanrrtech.app.kompasgithubapp.R
 import vanrrtech.app.kompasgithubapp.app.AppScope.MyApplication
 import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.GitUserRemoteRepository
 import vanrrtech.app.kompasgithubapp.app.SearchFunction.ViewModel.SearchFunctionViewModel
-import vanrrtech.app.kompasgithubapp.app.UserDetailFunction.ModelView.ViewModelFactory
-import vanrrtech.app.kompasgithubapp.app.UserDetailFunction.ModelView.ViewModelUserDetailsActivity
 import vanrrtech.app.kompasgithubapp.databinding.ActivityMainBinding
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
