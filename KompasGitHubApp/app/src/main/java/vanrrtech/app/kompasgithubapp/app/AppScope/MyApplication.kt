@@ -2,16 +2,15 @@ package vanrrtech.app.kompasgithubapp.app.AppScope
 
 import android.app.Application
 import android.content.Context
-import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.Networking.DaggerRemoteRepositoryComponent
-import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.Networking.NetworkingModule
-import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.Networking.RemoteRepositoryComponent
-
+import vanrrtech.app.kompasgithubapp.app.DependancyInjenction.AppComponent
+import vanrrtech.app.kompasgithubapp.app.DependancyInjenction.AppModule
+import vanrrtech.app.kompasgithubapp.app.DependancyInjenction.DaggerAppComponent
 
 class MyApplication : Application() {
-
-    val myNetworkingComponnentDagger : RemoteRepositoryComponent by lazy {
-        DaggerRemoteRepositoryComponent.builder().networkingModule(NetworkingModule()).build()
+    val myAppComponent : AppComponent by lazy {
+            DaggerAppComponent.builder().appModule(AppModule(this)).build()
     }
+
     override fun onCreate() {
         super.onCreate()
         context = this.applicationContext

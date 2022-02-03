@@ -1,6 +1,5 @@
 package vanrrtech.app.kompasgithubapp.app.UserDetailFunction.View
 
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -10,14 +9,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import vanrrtech.app.kompasgithubapp.R
 import vanrrtech.app.kompasgithubapp.app.AppScope.MyApplication
+import vanrrtech.app.kompasgithubapp.app.BaseActivityFragmentEtc.BaseActivity
 import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.GitUserRemoteRepository
 import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.UserItem
 import vanrrtech.app.kompasgithubapp.app.UserDetailFunction.ModelView.ViewModelUserDetailsActivity
-import vanrrtech.app.kompasgithubapp.app.UserDetailFunction.ModelView.ViewModelFactory
+import vanrrtech.app.kompasgithubapp.app.UserDetailFunction.ModelView.UserDetailVMFactory
 import vanrrtech.app.kompasgithubapp.databinding.ActivityUserDetailBinding
 import javax.inject.Inject
 
-class UserDetailActivity : AppCompatActivity() {
+class UserDetailActivity : BaseActivity() {
 
     companion object{
         val USER_PARAM_INTENT = "passing-user-param-serialized";
@@ -32,7 +32,7 @@ class UserDetailActivity : AppCompatActivity() {
     var userInfo : UserItem? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (MyApplication.appContext as MyApplication).myNetworkingComponnentDagger.inject(this)
+        activityComponent.inject(this)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_detail)
@@ -41,7 +41,7 @@ class UserDetailActivity : AppCompatActivity() {
 
         userInfo = intent.getSerializableExtra(USER_PARAM_INTENT) as UserItem?
 
-        viewModel = ViewModelFactory(mRepo, this.application, userInfo!!).create(ViewModelUserDetailsActivity::class.java)
+        viewModel = UserDetailVMFactory(mRepo, this.application, userInfo!!).create(ViewModelUserDetailsActivity::class.java)
 
         _mBinder!!.userRepoRv.apply {
             layoutManager = LinearLayoutManager(this@UserDetailActivity)

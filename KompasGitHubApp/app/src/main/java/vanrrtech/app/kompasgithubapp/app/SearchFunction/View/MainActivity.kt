@@ -1,12 +1,8 @@
 package vanrrtech.app.kompasgithubapp.app.SearchFunction.View
 
-import android.app.Application
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jakewharton.rxbinding2.widget.RxTextView
 import com.jakewharton.rxbinding2.widget.TextViewTextChangeEvent
@@ -17,31 +13,33 @@ import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import vanrrtech.app.kompasgithubapp.R
 import vanrrtech.app.kompasgithubapp.app.AppScope.MyApplication
+import vanrrtech.app.kompasgithubapp.app.BaseActivityFragmentEtc.BaseActivity
+import vanrrtech.app.kompasgithubapp.app.DependancyInjenction.Activity.ViewModelProducer.ViewModelProducer
 import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.GitUserRemoteRepository
 import vanrrtech.app.kompasgithubapp.app.SearchFunction.ViewModel.SearchFunctionViewModel
 import vanrrtech.app.kompasgithubapp.databinding.ActivityMainBinding
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
-    lateinit var viewModel : SearchFunctionViewModel
+class MainActivity : BaseActivity() {
     private val userList = UserListAdapter(this)
 
-    val mCompositeDisposable = CompositeDisposable()
+
+    @Inject lateinit var mCompositeDisposable : CompositeDisposable
+    @Inject lateinit var mRepo : GitUserRemoteRepository
+    @Inject lateinit var viewModel : SearchFunctionViewModel
 
     private var _mBinder : ActivityMainBinding? = null
-
-    @Inject lateinit var mRepo : GitUserRemoteRepository
 
     private var isSearching = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (MyApplication.appContext as MyApplication).myNetworkingComponnentDagger.inject(this)
+        activityComponent.inject(this)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        _mBinder = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        viewModel = SearchFunctionViewModel(mRepo, MyApplication.appContext as Application)
+        setContentView(R.layout.activity_main)
+
+        _mBinder = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         _mBinder!!.userRv.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
@@ -54,9 +52,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun observeGitUserRemote(){
         viewModel.userItem.observe(this, Observer { mUserItem ->
-            // UI update
-
-            // list update
             userList.onAddItem(mUserItem!!, isSearching)
             _mBinder!!.userRv.smoothScrollToPosition(0)
         })

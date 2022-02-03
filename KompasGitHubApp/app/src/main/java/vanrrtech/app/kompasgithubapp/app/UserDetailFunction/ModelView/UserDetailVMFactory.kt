@@ -8,7 +8,7 @@ import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.GitUserRemoteRepos
 import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.UserItem
 
 
-class ViewModelFactory(private val mRepo : GitUserRemoteRepository, application: Application, param: UserItem) :
+class UserDetailVMFactory(private val mRepo : GitUserRemoteRepository, application: Application, param: UserItem) :
     ViewModelProvider.Factory {
     private val mApplication: Application
     private val mUserInfo: UserItem
