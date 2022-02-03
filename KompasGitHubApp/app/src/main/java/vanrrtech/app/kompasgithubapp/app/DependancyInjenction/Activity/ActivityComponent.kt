@@ -1,9 +1,8 @@
 package vanrrtech.app.kompasgithubapp.app.DependancyInjenction.Activity
 
-import dagger.Module
 import dagger.Subcomponent
-import vanrrtech.app.kompasgithubapp.app.SearchFunction.View.MainActivity
-import vanrrtech.app.kompasgithubapp.app.UserDetailFunction.View.UserDetailActivity
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.View.MainActivity
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.UserDetailFunction.View.UserDetailActivity
 
 @ActivityScope
 @Subcomponent(modules = [ActivityModule::class])

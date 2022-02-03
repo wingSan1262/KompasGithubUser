@@ -1,11 +1,10 @@
-package vanrrtech.app.kompasgithubapp.app.SearchFunction.ViewModel
+package vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.ViewModel
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 
 import androidx.lifecycle.ViewModelProvider
-import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.GitUserRemoteRepository
-import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.UserItem
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.Model.GitUserRemoteRepository
 
 
 class SearchFunctionViewModelFactory(val mApplication: Application, val repo : GitUserRemoteRepository) :

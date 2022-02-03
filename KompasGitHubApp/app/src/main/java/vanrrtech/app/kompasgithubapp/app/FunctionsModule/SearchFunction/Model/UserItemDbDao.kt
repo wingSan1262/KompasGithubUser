@@ -1,7 +1,6 @@
-package vanrrtech.app.kompasgithubapp.app.SearchFunction.Model
+package vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.Model
 
 import androidx.room.*
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserItemDbDao {

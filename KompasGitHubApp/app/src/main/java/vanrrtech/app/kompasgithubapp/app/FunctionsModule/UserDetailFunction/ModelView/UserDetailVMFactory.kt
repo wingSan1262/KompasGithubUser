@@ -1,11 +1,11 @@
-package vanrrtech.app.kompasgithubapp.app.UserDetailFunction.ModelView
+package vanrrtech.app.kompasgithubapp.app.FunctionsModule.UserDetailFunction.ModelView
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 
 import androidx.lifecycle.ViewModelProvider
-import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.GitUserRemoteRepository
-import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.UserItem
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.Model.GitUserRemoteRepository
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.Model.UserItem
 
 
 class UserDetailVMFactory(private val mRepo : GitUserRemoteRepository, application: Application, param: UserItem) :

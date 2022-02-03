@@ -1,4 +1,4 @@
-package vanrrtech.app.kompasgithubapp.app.SearchFunction.Model
+package vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.Model
 
 import com.google.gson.annotations.SerializedName
 

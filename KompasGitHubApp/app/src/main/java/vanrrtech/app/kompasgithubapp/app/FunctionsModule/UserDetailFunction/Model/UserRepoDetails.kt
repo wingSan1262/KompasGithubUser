@@ -1,4 +1,4 @@
-package vanrrtech.app.kompasgithubapp.app.UserDetailFunction.Model
+package vanrrtech.app.kompasgithubapp.app.FunctionsModule.UserDetailFunction.Model
 
 import com.google.gson.annotations.SerializedName
 

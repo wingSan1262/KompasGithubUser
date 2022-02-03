@@ -1,4 +1,4 @@
-package vanrrtech.app.kompasgithubapp.app.SearchFunction.View
+package vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.View
 
 import junit.framework.TestCase
 

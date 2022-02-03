@@ -1,4 +1,4 @@
-package vanrrtech.app.kompasgithubapp.app.SearchFunction.ViewModel
+package vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.ViewModel
 
 
 import android.app.Application
@@ -8,8 +8,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.runBlocking
-import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.GitUserRemoteRepository
-import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.UserItem
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.Model.GitUserRemoteRepository
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.Model.UserItem
 
 class SearchFunctionViewModel(private val mRepo : GitUserRemoteRepository, application: Application) : AndroidViewModel(
     application

@@ -1,4 +1,4 @@
-package vanrrtech.app.kompasgithubapp.app.SearchFunction.View
+package vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.View
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -12,11 +12,9 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import vanrrtech.app.kompasgithubapp.R
-import vanrrtech.app.kompasgithubapp.app.AppScope.MyApplication
 import vanrrtech.app.kompasgithubapp.app.BaseActivityFragmentEtc.BaseActivity
-import vanrrtech.app.kompasgithubapp.app.DependancyInjenction.Activity.ViewModelProducer.ViewModelProducer
-import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.GitUserRemoteRepository
-import vanrrtech.app.kompasgithubapp.app.SearchFunction.ViewModel.SearchFunctionViewModel
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.Model.GitUserRemoteRepository
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.ViewModel.SearchFunctionViewModel
 import vanrrtech.app.kompasgithubapp.databinding.ActivityMainBinding
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package vanrrtech.app.kompasgithubapp.app.UserDetailFunction.ModelView
+package vanrrtech.app.kompasgithubapp.app.FunctionsModule.UserDetailFunction.ModelView
 
 import junit.framework.TestCase
 

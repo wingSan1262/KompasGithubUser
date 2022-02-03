@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".app.UserDetailFunction.UserDetailActivity">
+        tools:context="vanrrtech.app.kompasgithubapp.app.FunctionsModule.UserDetailFunction.UserDetailActivity">
 
         <LinearLayout
             android:layout_marginTop="20dp"

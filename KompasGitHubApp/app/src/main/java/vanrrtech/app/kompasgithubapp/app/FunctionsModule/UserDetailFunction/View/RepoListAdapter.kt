@@ -1,4 +1,4 @@
-package vanrrtech.app.kompasgithubapp.app.UserDetailFunction.View
+package vanrrtech.app.kompasgithubapp.app.FunctionsModule.UserDetailFunction.View
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import vanrrtech.app.kompasgithubapp.R
-import vanrrtech.app.kompasgithubapp.app.UserDetailFunction.Model.UserRepoDetails
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.UserDetailFunction.Model.UserRepoDetails
 import vanrrtech.app.kompasgithubapp.databinding.RvChildUserRepoBinding
 
 class RepoListAdapter (context: Context) : RecyclerView.Adapter<RepoListAdapter.RepoListAdapterHolder>() {

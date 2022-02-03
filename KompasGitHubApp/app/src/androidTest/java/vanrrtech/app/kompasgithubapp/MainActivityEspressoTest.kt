@@ -10,18 +10,14 @@ import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
-import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
-import com.adevinta.android.barista.assertion.BaristaListAssertions.assertListItemCount
-import org.hamcrest.Description
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import vanrrtech.app.kompasgithubapp.app.SearchFunction.View.MainActivity
-import java.util.regex.Matcher
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.View.MainActivity
 
 
 @RunWith(AndroidJUnit4::class)

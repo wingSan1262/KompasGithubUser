@@ -1,16 +1,15 @@
-package vanrrtech.app.kompasgithubapp.app.SearchFunction.View
+package vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.View
 
 import android.content.Context
 import android.content.Intent
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import vanrrtech.app.kompasgithubapp.R
-import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.UserItem
-import vanrrtech.app.kompasgithubapp.app.UserDetailFunction.View.UserDetailActivity
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.Model.UserItem
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.UserDetailFunction.View.UserDetailActivity
 import vanrrtech.app.kompasgithubapp.databinding.RvChildUserItemBinding
 
 class UserListAdapter (context: Context) : RecyclerView.Adapter<UserListAdapter.UserListAdapterHolder>() {

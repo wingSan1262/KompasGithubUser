@@ -1,6 +1,5 @@
-package vanrrtech.app.kompasgithubapp.app.UserDetailFunction.View
+package vanrrtech.app.kompasgithubapp.app.FunctionsModule.UserDetailFunction.View
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
@@ -8,12 +7,11 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import vanrrtech.app.kompasgithubapp.R
-import vanrrtech.app.kompasgithubapp.app.AppScope.MyApplication
 import vanrrtech.app.kompasgithubapp.app.BaseActivityFragmentEtc.BaseActivity
-import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.GitUserRemoteRepository
-import vanrrtech.app.kompasgithubapp.app.SearchFunction.Model.UserItem
-import vanrrtech.app.kompasgithubapp.app.UserDetailFunction.ModelView.ViewModelUserDetailsActivity
-import vanrrtech.app.kompasgithubapp.app.UserDetailFunction.ModelView.UserDetailVMFactory
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.Model.GitUserRemoteRepository
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.SearchFunction.Model.UserItem
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.UserDetailFunction.ModelView.ViewModelUserDetailsActivity
+import vanrrtech.app.kompasgithubapp.app.FunctionsModule.UserDetailFunction.ModelView.UserDetailVMFactory
 import vanrrtech.app.kompasgithubapp.databinding.ActivityUserDetailBinding
 import javax.inject.Inject
 
